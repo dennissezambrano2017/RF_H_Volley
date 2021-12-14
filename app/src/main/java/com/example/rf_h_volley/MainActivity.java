@@ -29,7 +29,7 @@
      private TextView textView;
      private RequestQueue requeque;
      String url="https://api-uat.kushkipagos.com/transfer-subscriptions/v1/bankList";
-
+     ArrayList<String> lstDatos = new ArrayList<String>();
      @Override
      protected void onCreate(Bundle savedInstanceState) {
          super.onCreate(savedInstanceState);
@@ -42,14 +42,13 @@
 
      }
      private void GetApiData(){
-         ArrayList<String> lstDatos = new ArrayList<String>();
-         JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, null,
-                 new Response.Listener<JSONObject>() {
-                     @Override
-                     public void onResponse(JSONObject response) {
-                         try {
-                             JSONArray jsonArray = response.getJSONArray("data");
 
+         StringRequest request = new StringRequest(Request.Method.GET,
+                 url,new Response.Listener<String>() {
+                     @Override
+                     public void onResponse(String response) {
+                         try {
+                             JSONArray jsonArray = new JSONArray(response);
 
                              for (int i=0; i <jsonArray.length();i++){
                                  JSONObject data = jsonArray.getJSONObject(i);
