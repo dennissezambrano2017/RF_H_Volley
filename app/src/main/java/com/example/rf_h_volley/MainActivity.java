@@ -28,7 +28,7 @@
 
      private TextView textView;
      private RequestQueue requeque;
-     String url="https://gorest.co.in/public/v1/users";
+     String url="https://api-uat.kushkipagos.com/transfer-subscriptions/v1/bankList";
 
      @Override
      protected void onCreate(Bundle savedInstanceState) {
